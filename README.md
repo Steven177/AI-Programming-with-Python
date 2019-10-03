@@ -17,28 +17,41 @@ NOTE: In order to install Pytorch follow the instructions given on the official 
 ## Command Line Application
 Train a new network on a data set with train.py
 
-Basic Usage : python train.py data_directory
+**Basic Usage: **
+> python train.py data_directory
+
 Prints out current epoch, training loss, validation loss, and validation accuracy as the netowrk trains
-Options:
+
+**Options:**
 Set direcotry to save checkpoints: ```python train.py data_dor --save_dir save_directory```
+
 Choose arcitecture (densenet121 or vgg16 available): ```python train.py data_dir --arch "vgg16"```
+
 Set hyperparameters: ```python train.py data_dir --learning_rate 0.001 --hidden_layer1 120 --epochs 20```
+
 Use GPU for training: ```python train.py data_dir --gpu gpu```
+
 Output: A trained network ready with checkpoint saved for doing parsing of flower images and identifying the species.
 Predict flower name from an image with predict.py along with the probability of that name. That is you'll pass in a single image /path/to/image and return the flower name and class probability
 
-Basic usage: ```python predict.py /path/to/image checkpoint```
-Options:
+**Basic usage:** 
+> python predict.py /path/to/image checkpoint
+
+**Options:**
 Return top K most likely classes: ```python predict.py input checkpoint ---top_k 3```
+
 Use a mapping of categories to real names: ```python predict.py input checkpoint --category_names cat_To_name.json```
+
 Use GPU for inference: ```python predict.py input checkpoint --gpu```
-Data
+
+## Data
 The data used specifically for this assignment are a flower database(.json file). It is not provided in the repository as it's larger than what github allows.
 The data need to comprised of 3 folders:
 
 * test
 * train
 * validate
+
 Generally the proportions should be 70% training 10% validate and 20% test.
 
 Inside the train, test and validate folders there should be folders bearing a specific number which corresponds to a specific category, clarified in the json file. For example if we have the image x.jpg and it is a lotus it could be in a path like this /test/5/x.jpg and json file would be like this {...5:"lotus",...}.
@@ -55,8 +68,8 @@ A small learning rate guarantees that the network will reach greater accuracies 
 Densenet121 works best for images but the training process takes significantly longer than alexnet or vgg16
 Current settings:
 
-lr: 0.001
-dropout: 0.5
-epochs: 6
-Accuracy: 83%
+* lr: 0.001
+* dropout: 0.5
+* epochs: 7
+* Accuracy: 84%
 
